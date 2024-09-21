@@ -14,7 +14,7 @@ export const greetings: GreetingsType = {
   name: "Chetan Ukani",
   title: "Hi all, I'm Chetan",
   description: "I am a passionate Full Stack web developer with expertise in designing and implementing backend logic using Node.js, Express.js, and MongoDB. On the client side, I specialize in React.js and Redux, which allows me to translate complex concepts into functional, high-performance code and seamless user interfaces. I am known for effective communication and collaborative problem-solving within cross-functional teams.",
-  resumeLink: "https://drive.google.com/file/d/1I8M14yWw_BhyivjPArXY_zaI-4uCDbvM/view?usp=sharing",
+  resumeLink: "https://drive.google.com/file/d/1BqZndGwnL0Xo9PSIh9jf9QTLrQuTvMXn/view?usp=sharing",
 };
 
 export const openSource = {
@@ -193,7 +193,7 @@ export const experience: ExperienceType[] = [
   {
     role: "Blockchain Developer",
     company: "Yudiz Solutions Limited",
-    companyLogo: "/img/icons/common/yudiz-logo.png",
+    companyLogo: "/img/icons/common/yudiz-logo.jpg",
     date: "Jan 2022 - August 2023",
     desc: "Developed and deployed smart contracts on Ethereum using Solidity, created decentralized applications with web3.js, and integrated blockchain solutions to enhance data security. Conducted security audits to identify vulnerabilities and optimized blockchain performance to reduce transaction costs. And implements RESTful APIs with Node.js and Express.js and MongoDB",
     link: 'https://yudiz.com/'
