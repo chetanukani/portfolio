@@ -19,7 +19,7 @@ const Navigation = () => {
     <>
       <header className="header-global">
         <Navbar className="navbar-main navbar-transparent navbar-light headroom" expand="lg" id="navbar-main">
-          <Container>
+          <Container className="align-button">
             <NavbarBrand href="/" className="mr-lg-5">
               <h2 className="text-white" id="nav-title">
                 {greetings.name}

@@ -610,6 +610,11 @@ pre code {
 	margin-right: auto;
 	margin-left: auto;
 }
+
+.align-button {
+	display: flex;
+	justify-content: space-between;
+}
 @media (min-width: 576px) {
 	.container {
 		max-width: 540px;
