@@ -6,14 +6,15 @@ import { UncontrolledCollapse, NavbarBrand, Navbar, NavItem, NavLink, Nav, Conta
 const Navigation = () => {
   const [collapseClasses, setCollapseClasses] = useState("");
   const onExiting = () => setCollapseClasses("collapsing-out");
-
   const onExited = () => setCollapseClasses("");
 
   useEffect(() => {
-    let headroom = new Headroom(document.getElementById("navbar-main")!);
-    // initialise
-    headroom.init();
-  });
+    const navElem = document.getElementById("navbar-main");
+    if (navElem) {
+      let headroom = new Headroom(navElem);
+      headroom.init();
+    }
+  }, []);
 
   return (
     <>
@@ -21,7 +22,7 @@ const Navigation = () => {
         <Navbar className="navbar-main navbar-transparent navbar-light headroom" expand="lg" id="navbar-main">
           <Container className="align-button">
             <NavbarBrand href="/" className="mr-lg-5">
-              <h2 className="text-white" id="nav-title">
+              <h2 className="text-white mb-0" id="nav-title" style={{ fontWeight: 700 }}>
                 {greetings.name}
               </h2>
             </NavbarBrand>
@@ -38,7 +39,7 @@ const Navigation = () => {
               <div className="navbar-collapse-header">
                 <Row>
                   <Col className="collapse-brand" xs="6">
-                    <h3 className="text-black" id="nav-title">
+                    <h3 className="text-black mb-0" id="nav-title">
                       {greetings.name}
                     </h3>
                   </Col>
@@ -50,7 +51,39 @@ const Navigation = () => {
                   </Col>
                 </Row>
               </div>
-              <Nav className="align-items-lg-center ml-lg-auto" navbar>
+              <Nav className="navbar-nav-hover align-items-lg-center ml-lg-auto" navbar>
+                <NavItem>
+                  <NavLink href="#skills" className="nav-link font-weight-600 text-white">
+                    Skills
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="#proficiency" className="nav-link font-weight-600 text-white">
+                    Proficiency
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="#experience" className="nav-link font-weight-600 text-white">
+                    Experience
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="#projects" className="nav-link font-weight-600 text-white">
+                    Projects
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="#education" className="nav-link font-weight-600 text-white">
+                    Education
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="#contact" className="nav-link font-weight-600 text-white">
+                    Contact
+                  </NavLink>
+                </NavItem>
+              </Nav>
+              <Nav className="align-items-lg-center ml-lg-3" navbar>
                 {socialLinks.email && (
                   <NavItem>
                     <NavLink
@@ -79,7 +112,7 @@ const Navigation = () => {
                     </NavLink>
                   </NavItem>
                 )}
-                 {socialLinks.github && (
+                {socialLinks.github && (
                   <NavItem>
                     <NavLink
                       rel="noopener"

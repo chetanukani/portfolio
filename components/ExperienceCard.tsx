@@ -1,61 +1,63 @@
 import React from "react";
 import { Card, CardBody, CardTitle, CardSubtitle, CardText, Col, Button } from "reactstrap";
-import Fade from "react-reveal/Fade";
 import { ExperienceType } from "../types/sections";
 
-const ExperienceCard = ({ companyLogo, company, role, date, desc, descBullets,link }: ExperienceType) => {
+const ExperienceCard = ({ companyLogo, company, role, date, desc, descBullets, link }: ExperienceType) => {
   return (
-    <Col lg="6">
-      <Card style={{ flex: 1 }} className="shadow-lg--hover my-4 shadow border-0 text-center rounded h-100">
-        <CardBody className="">
-          <img
-            src={companyLogo}
-            style={{
-              objectFit: "cover",
-              left: 0,
-              right: 0,
-              top: "7rem",
-              marginLeft: "auto",
-              marginRight: "auto",
-              width: "8rem",
-              height: "8rem",
-              borderRadius: "50%",
-            }}
-            className="shadow mb-3"
-            alt={companyLogo}
-          />
-          <CardTitle tag="h4" className="mb-2">
-            {company}
-          </CardTitle>
-          <CardSubtitle tag="h5" className="mb-2">
-            {role}
-          </CardSubtitle>
-          <CardSubtitle>{date}</CardSubtitle>
-          <CardText tag="div" className="description my-3 text-left">
-            {desc}
-            <ul>
-              {descBullets
-                ? descBullets.map(desc => {
-                    return <li key={desc}>{desc}</li>;
-                  })
-                : null}
-            </ul>
-            {link ? (
+    <Col lg="6" className="my-3">
+      <Card className="shadow-lg--hover shadow border-0 rounded h-100">
+        <CardBody className="d-flex flex-column text-left p-4">
+          <div className="text-center mb-3">
+            <img
+              src={companyLogo}
+              style={{
+                objectFit: "cover",
+                width: "6.5rem",
+                height: "6.5rem",
+                borderRadius: "50%",
+              }}
+              className="shadow p-1 bg-white mb-2"
+              alt={company}
+            />
+            <CardTitle tag="h4" className="mt-2 mb-1 font-weight-bold">
+              {company}
+            </CardTitle>
+            <CardSubtitle tag="h5" className="text-info mb-1 font-weight-600">
+              {role}
+            </CardSubtitle>
+            <CardSubtitle className="text-muted small font-weight-bold">{date}</CardSubtitle>
+          </div>
+          <CardText tag="div" className="description mt-2 flex-grow-1">
+            <p className="mb-3 text-dark">{desc}</p>
+            {descBullets && descBullets.length > 0 && (
+              <ul className="pl-3 mb-3">
+                {descBullets.map((bullet, idx) => {
+                  return (
+                    <li key={idx} className="mb-2 text-muted" style={{ lineHeight: "1.6" }}>
+                      {bullet}
+                    </li>
+                  );
+                })}
+              </ul>
+            )}
+          </CardText>
+          {link && (
+            <div className="mt-auto text-center pt-2">
               <Button
-                className="btn-icon"
-                color="success"
+                className="btn-icon btn-sm px-3"
+                color="info"
                 href={link}
                 target="_blank"
                 rel="noopener"
-                aria-label="Twitter"
+                aria-label={`Visit ${company}`}
               >
-                <span className="btn-inner--icon">
-                  <i className="fa fa-arrow-right mr-2" />
+                <span className="btn-inner--icon mr-1">
+                  <i className="fa fa-external-link" />
                 </span>
-                <span className="nav-link-inner--text ml-1">Link</span>
+                <span className="nav-link-inner--text">Company Website</span>
               </Button>
-            ) : null}
-          </CardText>
+            </div>
+          )}
         </CardBody>
       </Card>
     </Col>

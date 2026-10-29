@@ -8,7 +8,7 @@ const Experience = () => {
   return (
     experience && (
       <Fade bottom duration={2000}>
-        <section className="section section-lg">
+        <section id="experience" className="section section-lg">
           <Container>
             <div className="d-flex p-4">
               <div>
@@ -20,7 +20,7 @@ const Experience = () => {
                 <h4 className="display-3 text-info">Experience</h4>
               </div>
             </div>
-            <Row className="row-grid align-items-start">
+            <Row className="row-grid align-items-stretch">
               {experience.map((data, i) => {
                 return <ExperienceCard key={i} {...data} />;
               })}

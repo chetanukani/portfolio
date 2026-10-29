@@ -1,3 +1,28 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body > div:first-child {
   overflow-x: hidden;
+}
+
+.headroom--not-top.navbar-main {
+  background: linear-gradient(87deg, #11cdef 0, #1171ef 100%) !important;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.headroom--not-top .nav-link {
+  color: #ffffff !important;
+}
+
+.navbar-nav-hover .nav-link {
+  font-size: 0.95rem;
+  padding: 0.5rem 0.85rem !important;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.navbar-nav-hover .nav-link:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
 }

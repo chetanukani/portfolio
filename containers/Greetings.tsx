@@ -7,8 +7,10 @@ import SocialLinks from "../components/SocialLinks";
 const Greetings = () => {
   useEffect(() => {
     document.documentElement.scrollTop = 0;
-    document.scrollingElement!.scrollTop = 0;
-  });
+    if (document.scrollingElement) {
+      document.scrollingElement.scrollTop = 0;
+    }
+  }, []);
 
   return (
     <main>
@@ -27,15 +29,23 @@ const Greetings = () => {
           </div>
           <Container className="py-lg-md d-flex">
             <div className="col px-0">
-              <Row>
+              <Row className="align-items-center">
                 <Col lg="6">
-                  <h1 className="display-3 text-white">{greetings.title + " "}</h1>
-                  <p className="lead text-white">{greetings.description}</p>
+                  <div
+                    className="badge badge-pill badge-primary mb-3 px-3 py-2 text-uppercase font-weight-bold"
+                    style={{ backgroundColor: "rgba(255,255,255,0.22)", letterSpacing: "1px" }}
+                  >
+                    Full Stack & Web3 Developer
+                  </div>
+                  <h1 className="display-3 text-white font-weight-bold">{greetings.title}</h1>
+                  <p className="lead text-white" style={{ lineHeight: "1.7", fontSize: "1.05rem" }}>
+                    {greetings.description}
+                  </p>
                   <SocialLinks />
-                  {greetings.resumeLink && (
-                    <div className="btn-wrapper my-4">
+                  <div className="btn-wrapper my-4 d-flex flex-wrap align-items-center">
+                    {greetings.resumeLink && (
                       <Button
-                        className="btn-white btn-icon mb-3 mb-sm-0 ml-1"
+                        className="btn-white btn-icon mb-3 mb-sm-0 mr-2 shadow"
                         color="default"
                         href={greetings.resumeLink}
                         target="_blank"
@@ -45,8 +55,18 @@ const Greetings = () => {
                         </span>
                         <span className="btn-inner--text">See My Resume</span>
                       </Button>
-                    </div>
-                  )}
+                    )}
+                    <Button
+                      className="btn-icon mb-3 mb-sm-0 mr-2 shadow text-white"
+                      color="success"
+                      href="#projects"
+                    >
+                      <span className="btn-inner--icon mr-1">
+                        <i className="fa fa-cubes" />
+                      </span>
+                      <span className="btn-inner--text">View Projects</span>
+                    </Button>
+                  </div>
                 </Col>
                 <Col lg="6">
                   <GreetingLottie animationPath="/lottie/coding.json" />
@@ -68,7 +88,6 @@ const Greetings = () => {
             </svg>
           </div>
         </section>
-        {/* 1st Hero Variation */}
       </div>
     </main>
   );
